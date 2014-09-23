@@ -1,0 +1,29 @@
+<div class="sixteen columns">
+  <div class="four columns">
+    <p>Something goes here</p>
+  </div>
+  <div class="four columns">
+    <label>Fixed Costs
+    {{input type="number" value=fixedCosts}}
+    </label>
+  </div>
+  <div class="four columns">
+    <label>Unit Costs
+    {{input type="number" value=unitCosts}}
+    </label>
+  </div>
+  <div class="four columns">
+    <label>Selling Price
+    {{input type="number" value=sellingPrice}}
+    </label>
+  </div>
+</div>
+
+<div class="sixteen columns">
+  {{break-even-analysis-equation
+    breakEvenQuantity=breakEvenQuantity
+    sellingPrice=sellingPrice
+    fixedCosts=fixedCosts
+    unitCosts=unitCosts
+  }}
+</div>
