@@ -1,0 +1,48 @@
+header .container {
+  width: 90%; /*width: 960px;*/
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.cee-logo {
+  max-width: 214px;
+  max-height: 80px;
+  margin-right: 20px;
+}
+
+.menu-item {
+  display: inline;
+  padding: 20px;
+}
+
+.nav-menu {
+  margin: 32px 0;
+  & a {
+    text-decoration: none;
+    color: #AAA;
+    &:hover {
+      color: #666;
+    }
+    &:active {
+      color: #CCC;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.title {
+  background-color: rgb(102, 201, 174);
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  & h1 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    @media screen and (max-width: 480px) {
+      font-size: 1.5rem;
+    }
+  }
+}

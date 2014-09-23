@@ -1,0 +1,35 @@
+@import 'colors';
+
+input[type="number"], input[type="text"] {
+  font-family: "Open Sans";
+  line-height: normal;
+  padding: 0.25em;
+  width: 100%;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  font-size: 1em;
+  margin: 1rem 0;
+  &:active {
+    outline: none;
+  };
+  @media screen and (max-width: 768px) {
+    width: 92%;
+  }
+}
+
+select {
+  font-family: "Open Sans";
+  line-height: normal;
+  padding: 0.25em;
+  width: 100%;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  font-size: 1em;
+  margin: 1rem 0;
+  &:active {
+    outline: none;
+  };
+  @media screen and (max-width: 768px) {
+    width: 92%;
+  }
+}
