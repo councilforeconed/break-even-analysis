@@ -1,25 +1,22 @@
-<div class="sixteen columns">
-  <div class="four columns">
-    <p>Something goes here</p>
-  </div>
-  <div class="four columns">
+<div class="eight columns">
+  <div>
     <label>Fixed Costs
     {{input type="number" value=fixedCosts}}
     </label>
   </div>
-  <div class="four columns">
+  <div>
     <label>Unit Costs
     {{input type="number" value=unitCosts}}
     </label>
   </div>
-  <div class="four columns">
+  <div>
     <label>Selling Price
     {{input type="number" value=sellingPrice}}
     </label>
   </div>
 </div>
 
-<div class="sixteen columns">
+<div class="eight columns">
   {{break-even-analysis-equation
     breakEvenQuantity=breakEvenQuantity
     sellingPrice=sellingPrice

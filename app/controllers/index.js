@@ -7,7 +7,8 @@ export default Ember.ObjectController.extend({
   sellingPrice: 0,
 
   breakEvenQuantity: function () {
-    return this.get('fixedCosts') / (this.get('sellingPrice') - this.get('unitCosts'));
+    var breakEvenQuantity = this.get('fixedCosts') / (this.get('sellingPrice') - this.get('unitCosts'));
+    isNan(breakEvenQuantity) ? return '--' : return breakEvenQuantity;
   }.property('fixedCosts', 'unitCosts', 'sellingPrice')
 
 });
