@@ -2,9 +2,9 @@
 
 export default Ember.ObjectController.extend({
 
-  fixedCosts: 0,
-  unitCosts: 0,
-  sellingPrice: 0,
+  fixedCosts: 200,
+  unitCosts: 20,
+  sellingPrice: 40,
 
   breakEvenQuantity: function () {
     var breakEvenQuantity = this.get('fixedCosts') / (this.get('sellingPrice') - this.get('unitCosts'));
