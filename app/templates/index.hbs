@@ -1,26 +1,26 @@
 <div class="sixteen columns">
   {{analysis-chart
     breakEvenQuantity=breakEvenQuantity
-    sellingPrice=sellingPrice
-    fixedCosts=fixedCosts
-    unitCosts=unitCosts
+    sellingPriceValue=sellingPrice
+    fixedCostsValue=fixedCosts
+    unitCostsValue=unitCosts
   }}
 </div>
 
 <div class="eight columns">
   <div>
     <label>Fixed Costs
-    {{input type="number" value=fixedCosts}}
+    {{input type="number" min=0 value=fixedCosts}}
     </label>
   </div>
   <div>
     <label>Unit Costs
-    {{input type="number" value=unitCosts}}
+    {{input type="number" min=0 value=unitCosts}}
     </label>
   </div>
   <div>
     <label>Selling Price
-    {{input type="number" value=sellingPrice}}
+    {{input type="number" min=0 value=sellingPrice}}
     </label>
   </div>
 </div>
