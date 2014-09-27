@@ -1,4 +1,4 @@
-/* global d3 */
+/* global d3, console */
 
 export default Ember.Component.extend({
   classNames: ['chart'],
@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   height: 400,
   width: 940,
 
-  padding: 50,
+  padding: 55,
 
   unitCosts: function () {
     return parseInt(this.get('unitCostsValue'), 10);
@@ -53,7 +53,8 @@ export default Ember.Component.extend({
   yAxis: function () {
     return d3.svg.axis()
                  .scale(this.get('yScale'))
-                 .orient("left");
+                 .orient("left")
+                 .tickFormat(function(d) { return "$" + d; });
   }.property('yScale'),
 
   didInsertElement: function () {
@@ -104,6 +105,12 @@ export default Ember.Component.extend({
         .attr("stroke-width", 2)
         .attr("stroke", "green");
 
+    svg.append("text")
+      .attr("class", "x label")
+      .attr("x", this.get('width') - this.get('padding') * 3)
+      .attr("y", this.get('height') - this.get('padding') - 10)
+      .text("Units Sold");
+
     this.set('fixedCostsLine', fixedCostsLine);
     this.set('variableCostsLine', variableCostsLine);
     this.set('profitLine', profitLine);
@@ -112,6 +119,6 @@ export default Ember.Component.extend({
   rebuildChart: function () {
     this.$('svg').empty();
     this.didInsertElement();
-  }.observes('breakEvenQuantity')
+  }.observes('breakEvenQuantity'),
 
 });

@@ -7,25 +7,29 @@
   }}
 </div>
 
-<div class="eight columns">
-  <div>
+<div class="sixteen columns">
+  <div class="four columns">
+    <label>Break Even Quantity</label>
+    <p>{{breakEvenQuantity}}</p>
+  </div>
+  <div class="four columns">
     <label>Fixed Costs
     {{input type="number" min=0 value=fixedCosts}}
     </label>
   </div>
-  <div>
+  <div class="four columns">
     <label>Unit Costs
     {{input type="number" min=0 value=unitCosts}}
     </label>
   </div>
-  <div>
+  <div class="four columns">
     <label>Selling Price
     {{input type="number" min=0 value=sellingPrice}}
     </label>
   </div>
 </div>
 
-<div class="eight columns">
+<div class="sixteen columns">
   {{break-even-analysis-equation
     breakEvenQuantity=breakEvenQuantity
     sellingPrice=sellingPrice
