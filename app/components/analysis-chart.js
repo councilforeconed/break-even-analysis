@@ -1,3 +1,5 @@
+/* global d3 */
+
 export default Ember.Component.extend({
   classNames: ['chart'],
 
@@ -107,20 +109,9 @@ export default Ember.Component.extend({
     this.set('profitLine', profitLine);
   },
 
-  updateFixedCostsLine: function () {
-    this.get('fixedCostsLine')
-      .attr("y1", this.get('yScale')(this.get('fixedCosts')))
-      .attr("y2", this.get('yScale')(this.get('fixedCosts')))
-  }.observes('fixedCosts'),
+  rebuildChart: function () {
+    this.$('svg').empty();
+    this.didInsertElement();
+  }.observes('breakEvenQuantity')
 
-  updateVariableCostsLine: function () {
-    var totalCosts = this.get('fixedCosts') + this.get('unitCosts');
-    this.get('variableCostsLine')
-      .attr("y2", this.get('yScale')(totalCosts * this.get('xWidth')))
-  }.observes('fixedCosts', 'unitCosts'),
-
-  updateProfitLine: function () {
-    this.get('profitLine')
-      .attr("y2", this.get('yScale')(this.get('sellingPrice') * this.get('xWidth')));
-  }.observes('sellingPrice')
 });
