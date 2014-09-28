@@ -85,7 +85,7 @@ export default Ember.Component.extend({
         .attr("x2", xScale(this.get('xWidth')))
         .attr("y2", yScale(this.get('fixedCosts')))
         .attr("stroke-width", 2)
-        .attr("stroke", "orange");
+        .attr("stroke", "#E37536");
 
     // Variable Costs
     var variableCostsLine = svg.append("line")
@@ -94,7 +94,7 @@ export default Ember.Component.extend({
         .attr("x2", xScale(this.get('xWidth')))
         .attr("y2", yScale(this.get('fixedCosts') + this.get('unitCosts') * this.get('xWidth')))
         .attr("stroke-width", 2)
-        .attr("stroke", "red");
+        .attr("stroke", "#C43331");
 
     // Profit
     var profitLine = svg.append("line")
@@ -103,13 +103,51 @@ export default Ember.Component.extend({
         .attr("x2", xScale(this.get('xWidth')))
         .attr("y2", yScale(this.get('sellingPrice') * this.get('xWidth')))
         .attr("stroke-width", 2)
-        .attr("stroke", "green");
+        .attr("stroke", "#74A949");
 
     svg.append("text")
-      .attr("class", "x label")
+      .attr("class", "x-axis label")
       .attr("x", this.get('width') - this.get('padding') * 3)
-      .attr("y", this.get('height') - this.get('padding') - 10)
+      .attr("y", this.get('height') - this.get('padding') - 8)
       .text("Units Sold");
+
+    svg.append("text")
+      .attr("class", "fixed-costs label")
+      .attr("x", this.get('width') - this.get('padding') * 3)
+      .attr("y", yScale(this.get('fixedCosts') + 30))
+      .text("Fixed Costs: $" + this.get('fixedCosts'));
+
+    var variableCostsKey = svg.append('g')
+      .attr("transform", "translate(" + (this.get('padding') + 150) + ", " + (this.get('padding') + 10)  + ")");
+
+    var profitKey = svg.append('g')
+      .attr("transform", "translate(" + (this.get('padding') + 50) + ", " + (this.get('padding') + 10)  + ")");
+
+    variableCostsKey.append('rect');
+
+    variableCostsKey.append('rect')
+      .attr('x', 5)
+      .attr('y', -10)
+      .attr('height', 10)
+      .attr('width', 10)
+      .attr('fill', '#C43331');
+
+    variableCostsKey.append("text")
+      .attr("class", "variable-costs key")
+      .attr("transform", "translate(25, 0)")
+      .text("Variable Costs");
+
+    profitKey.append('rect')
+      .attr('x', 5)
+      .attr('y', -10)
+      .attr('height', 10)
+      .attr('width', 10)
+      .attr('fill', '#74A949');
+
+    profitKey.append("text")
+      .attr("class", "profit key")
+      .attr("transform", "translate(25, 0)")
+      .text("Profit");
 
     this.set('fixedCostsLine', fixedCostsLine);
     this.set('variableCostsLine', variableCostsLine);
