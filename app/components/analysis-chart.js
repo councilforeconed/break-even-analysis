@@ -135,7 +135,7 @@ export default Ember.Component.extend({
     variableCostsKey.append("text")
       .attr("class", "variable-costs key")
       .attr("transform", "translate(25, 0)")
-      .text("Variable Costs");
+      .text("Total Costs");
 
     profitKey.append('rect')
       .attr('x', 5)
