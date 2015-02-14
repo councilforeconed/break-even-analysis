@@ -118,7 +118,7 @@ export default Ember.Component.extend({
       .text("Fixed Costs: $" + this.get('fixedCosts'));
 
     var variableCostsKey = svg.append('g')
-      .attr("transform", "translate(" + (this.get('padding') + 150) + ", " + (this.get('padding') + 10)  + ")");
+      .attr("transform", "translate(" + (this.get('padding') + 200) + ", " + (this.get('padding') + 10)  + ")");
 
     var profitKey = svg.append('g')
       .attr("transform", "translate(" + (this.get('padding') + 50) + ", " + (this.get('padding') + 10)  + ")");
@@ -147,7 +147,7 @@ export default Ember.Component.extend({
     profitKey.append("text")
       .attr("class", "profit key")
       .attr("transform", "translate(25, 0)")
-      .text("Profit");
+      .text("Total Revenue");
 
     this.set('fixedCostsLine', fixedCostsLine);
     this.set('variableCostsLine', variableCostsLine);
